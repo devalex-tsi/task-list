@@ -10,7 +10,7 @@ function App() {
     const {isLoading, error, sendRequest: fetchTasks} = useHttpCaller()
 
     useEffect(() => {
-        const transformTasks = taskObject => {
+        const transformTasksAction = taskObject => {
             const loadedTasks = [];
 
             for (const taskKey in taskObject) {
@@ -22,7 +22,7 @@ function App() {
 
         fetchTasks(
             {url: 'https://task-list-beb50-default-rtdb.europe-west1.firebasedatabase.app/tasks.json'},
-            transformTasks
+            transformTasksAction
         );
     }, [fetchTasks]);
 
